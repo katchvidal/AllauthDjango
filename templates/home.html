@@ -1,0 +1,14 @@
+{% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+{% endif %}
+
+<h1>  Hello World :  {{user.username}} </h1>
+
+<a href=" {% url 'account_logout' %} "> Salir </a>

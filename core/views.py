@@ -5,8 +5,9 @@ from django.contrib.auth.models import User
 from .form import RegisterForm
 from django.urls import reverse_lazy
 
-class home( LoginRequiredMixin, TemplateView):
-    template_name = 'home.html'
+class home(TemplateView):
+    template_name = 'public/index.html'
+
 
 class Registro( generic.CreateView):
     model=User

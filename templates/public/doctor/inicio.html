@@ -1,0 +1,42 @@
+{% extends 'public/base.html' %}
+{% block content %}
+{% include 'public/header.html' %}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+{% if messages %}
+<div>
+<strong>Messages:</strong>
+<ul>
+{% for message in messages %}
+<li>{{message}}</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+
+<div class="container">
+<h1> Hello World  </h1>
+
+{% if user %}
+Bienvenido Doctor: {{user.username |capfirst}} {{user.last_name}}
+{% endif %}
+<br/>
+Fecha : {% now "jS F Y H:i" %}
+<br/>
+<br/>
+
+
+
+<a href="{% url 'account_logout' %}"> Salir </a>
+
+<br/>
+<br/>
+<a href="{% url 'docnota' %}"> Crear Notas  </a>
+
+{% endblock content %}
+
+</div>

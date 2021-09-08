@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from .views import home, Registro
-from django.contrib.auth.views import LogoutView, LoginView
+from django.contrib.auth.views import LogoutView
 from core import settings
 
 
@@ -12,5 +12,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('registro', Registro.as_view(), name="Registro" ),
     #path('accounts/login/', allauth.account.views.LoginView.as_view( template_name='login.html '), name='login' ),
-    path('logout', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name="logout")
+    path('logout', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name="logout"),
+    path('doctor/', include('doctorapp.urls')),
 ]
